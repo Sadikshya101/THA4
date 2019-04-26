@@ -1,0 +1,410 @@
+{smcl}
+{com}{sf}{ul off}{txt}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/sadikshyanepal/Desktop/THA/THA4/Log Function for Rice Production In Chitwan Valley .smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}26 Apr 2019, 16:21:54
+
+{com}. do "/var/folders/43/cyw36ncs5b9_39lxgdhxdqdm0000gn/T//SD30688.000000"
+{txt}
+{com}. **clear all
+. set more off
+{txt}
+{com}. use "/Users/sadikshyanepal/Desktop/THA/Final Paper /CMS Data- FULL Variable.dta"
+{err}no; data in memory would be lost
+{txt}{search r(4), local:r(4);}
+
+end of do-file
+
+{search r(4), local:r(4);}
+
+{com}. clear
+
+. do "/var/folders/43/cyw36ncs5b9_39lxgdhxdqdm0000gn/T//SD30688.000000"
+{txt}
+{com}. **clear all
+. set more off
+{txt}
+{com}. use "/Users/sadikshyanepal/Desktop/THA/Final Paper /CMS Data- FULL Variable.dta"
+{txt}(Chitwan Valley [Nepal] Family Study: Labour Outmigration, Agricultural Productiv)
+
+{com}. keep MIG* A1_* A2_* A2A1_* A3_* A4_* A9_* B11_* B11A_* B11B_* B11C_* B13_* B13A_* B13B_* B13C_* B17_1_* B17_1A_* B17_1B_* REM* HHID
+{txt}
+{com}. reshape long MIG A1_ A2_ A2A1_ A3_ A4_ A9_ B11_ B11A_ B11B_ B11C_ B13_ B13A_ B13B_ B13C_ B17_1_ B17_1A_ B17_1B_ REM, i(HHID) j(year)  
+{txt}(note: j = 63 64 65 66 67 68 69 70 71 72)
+B13A_65:  {res}1{txt} value would be changed; not changed
+B13A_67:  {res}2{txt} values would be changed; not changed
+B13A_69:  {res}1{txt} value would be changed; not changed
+A2A1_71:  {res}1{txt} value would be changed; not changed
+B13A_71:  {res}2{txt} values would be changed; not changed
+A2A1_72:  {res}1{txt} value would be changed; not changed
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}    2255   {txt}->{res}   22550
+{txt}Number of variables            {res}     191   {txt}->{res}      21
+{txt}j variable (10 values)                    ->   {res}year
+{txt}xij variables:
+                  {res}MIG63 MIG64 ... MIG72   {txt}->   {res}MIG
+                  A1_63 A1_64 ... A1_72   {txt}->   {res}A1_
+                  A2_63 A2_64 ... A2_72   {txt}->   {res}A2_
+            A2A1_63 A2A1_64 ... A2A1_72   {txt}->   {res}A2A1_
+                  A3_63 A3_64 ... A3_72   {txt}->   {res}A3_
+                  A4_63 A4_64 ... A4_72   {txt}->   {res}A4_
+                  A9_63 A9_64 ... A9_72   {txt}->   {res}A9_
+               B11_63 B11_64 ... B11_72   {txt}->   {res}B11_
+            B11A_63 B11A_64 ... B11A_72   {txt}->   {res}B11A_
+            B11B_63 B11B_64 ... B11B_72   {txt}->   {res}B11B_
+            B11C_63 B11C_64 ... B11C_72   {txt}->   {res}B11C_
+               B13_63 B13_64 ... B13_72   {txt}->   {res}B13_
+            B13A_63 B13A_64 ... B13A_72   {txt}->   {res}B13A_
+            B13B_63 B13B_64 ... B13B_72   {txt}->   {res}B13B_
+            B13C_63 B13C_64 ... B13C_72   {txt}->   {res}B13C_
+         B17_1_63 B17_1_64 ... B17_1_72   {txt}->   {res}B17_1_
+      B17_1A_63 B17_1A_64 ... B17_1A_72   {txt}->   {res}B17_1A_
+      B17_1B_63 B17_1B_64 ... B17_1B_72   {txt}->   {res}B17_1B_
+                  REM63 REM64 ... REM72   {txt}->   {res}REM
+{txt}{hline 77}
+
+{com}. foreach x of varlist A* B* MIG REM {c -(}
+{txt}  2{com}. recode `x' (999=.) 
+{txt}  3{com}. recode `x' (998=.)
+{txt}  4{com}. {c )-}
+{txt}(A1_: 4326 changes made)
+(A1_: 6 changes made)
+(A2_: 0 changes made)
+(A2_: 0 changes made)
+(A2A1_: 0 changes made)
+(A2A1_: 0 changes made)
+(A3_: 4326 changes made)
+(A3_: 6 changes made)
+(A4_: 4326 changes made)
+(A4_: 6 changes made)
+(A9_: 4326 changes made)
+(A9_: 6 changes made)
+(B11_: 4326 changes made)
+(B11_: 6 changes made)
+(B11A_: 0 changes made)
+(B11A_: 0 changes made)
+(B11B_: 0 changes made)
+(B11B_: 0 changes made)
+(B11C_: 0 changes made)
+(B11C_: 0 changes made)
+(B13_: 4326 changes made)
+(B13_: 6 changes made)
+(B13A_: 0 changes made)
+(B13A_: 0 changes made)
+(B13B_: 0 changes made)
+(B13B_: 0 changes made)
+(B13C_: 0 changes made)
+(B13C_: 0 changes made)
+(B17_1_: 4328 changes made)
+(B17_1_: 6 changes made)
+(B17_1A_: 0 changes made)
+(B17_1A_: 0 changes made)
+(B17_1B_: 0 changes made)
+(B17_1B_: 0 changes made)
+(MIG: 0 changes made)
+(MIG: 0 changes made)
+(REM: 0 changes made)
+(REM: 0 changes made)
+
+{com}. recode B11_ (2=1)
+{txt}(B11_: 365 changes made)
+
+{com}. recode B11_ (3=1)
+{txt}(B11_: 651 changes made)
+
+{com}. replace A2_ = A2_/11.97295
+{txt}(14,639 real changes made)
+
+{com}. replace A2A1_= A2A1_/11.97295
+{txt}(330 real changes made)
+
+{com}. replace A3_ = A3_/11.97295
+{txt}(2,635 real changes made)
+
+{com}. replace A4_ = A4_/11.97295
+{txt}(5,102 real changes made)
+
+{com}. replace B11A_ = B11A_/11.97295
+{txt}(12,077 real changes made)
+
+{com}. replace B13A_= B13A_/11.97295
+{txt}(2,231 real changes made)
+
+{com}. replace B17_1A=B17_1A/11.97295
+{txt}(1,249 real changes made)
+
+{com}. regress A1_ MIG if A1_==1| A1_==0
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}    17,869
+{txt}{hline 13}{c +}{hline 34}   F(1, 17867)     = {res}    11.39
+{txt}       Model {c |} {res}  1.7513256         1   1.7513256   {txt}Prob > F        ={res}    0.0007
+{txt}    Residual {c |} {res} 2746.97933    17,867  .153745974   {txt}R-squared       ={res}    0.0006
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0006
+{txt}       Total {c |} {res} 2748.73065    17,868  .153835385   {txt}Root MSE        =   {res}  .3921
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}         A1_{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}MIG {c |}{col 14}{res}{space 2} .0066196{col 26}{space 2} .0019613{col 37}{space 1}    3.38{col 46}{space 3}0.001{col 54}{space 4} .0027752{col 67}{space 3} .0104641
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .8026038{col 26}{space 2} .0036825{col 37}{space 1}  217.95{col 46}{space 3}0.000{col 54}{space 4} .7953857{col 67}{space 3} .8098219
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. generate self_cult= A2_- A3_
+{txt}(7,911 missing values generated)
+
+{com}. generate wheat_prod= B13B_/B13A_
+{txt}(20,319 missing values generated)
+
+{com}. generate rice_prod= B11B_/B11A_
+{txt}(10,473 missing values generated)
+
+{com}. generate buck_prod= B17_1B/B17_1A
+{txt}(21,301 missing values generated)
+
+{com}. *collapse (sum) A2_ A2A1_ A3_ B11_ B11A_ B11B_ B11C_ B13_ B13A_ B13B_ B13C_ B17_1_ B17_1A_ B17_1B_ MIG REM, by(year)
+. generate total_production= B11B_+ B13B_
+{txt}(20,374 missing values generated)
+
+{com}. generate propotion_prod=B11B_/total_production 
+{txt}(20,374 missing values generated)
+
+{com}. regress wheat_prod MIG 
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}     2,231
+{txt}{hline 13}{c +}{hline 34}   F(1, 2229)      = {res}     0.27
+{txt}       Model {c |} {res}  42116.757         1   42116.757   {txt}Prob > F        ={res}    0.6049
+{txt}    Residual {c |} {res}  350589063     2,229  157285.358   {txt}R-squared       ={res}    0.0001
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}   -0.0003
+{txt}       Total {c |} {res}  350631180     2,230  157233.713   {txt}Root MSE        =   {res} 396.59
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}  wheat_prod{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}MIG {c |}{col 14}{res}{space 2}-2.984298{col 26}{space 2} 5.767118{col 37}{space 1}   -0.52{col 46}{space 3}0.605{col 54}{space 4}-14.29378{col 67}{space 3} 8.325186
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 576.2737{col 26}{space 2}  10.9317{col 37}{space 1}   52.72{col 46}{space 3}0.000{col 54}{space 4} 554.8364{col 67}{space 3} 597.7111
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. regress rice_prod MIG 
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}    12,077
+{txt}{hline 13}{c +}{hline 34}   F(1, 12075)     = {res}     5.98
+{txt}       Model {c |} {res} 3903825.82         1  3903825.82   {txt}Prob > F        ={res}    0.0145
+{txt}    Residual {c |} {res} 7.8794e+09    12,075  652536.324   {txt}R-squared       ={res}    0.0005
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0004
+{txt}       Total {c |} {res} 7.8833e+09    12,076  652805.559   {txt}Root MSE        =   {res}  807.8
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}   rice_prod{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}MIG {c |}{col 14}{res}{space 2}-12.08852{col 26}{space 2} 4.942311{col 37}{space 1}   -2.45{col 46}{space 3}0.014{col 54}{space 4}-21.77624{col 67}{space 3}-2.400792
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1258.796{col 26}{space 2} 9.582176{col 37}{space 1}  131.37{col 46}{space 3}0.000{col 54}{space 4} 1240.013{col 67}{space 3} 1277.578
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. regress B11B_ MIG
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}    12,725
+{txt}{hline 13}{c +}{hline 34}   F(1, 12723)     = {res}    42.18
+{txt}       Model {c |} {res} 71732672.2         1  71732672.2   {txt}Prob > F        ={res}    0.0000
+{txt}    Residual {c |} {res} 2.1640e+10    12,723  1700822.86   {txt}R-squared       ={res}    0.0033
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0032
+{txt}       Total {c |} {res} 2.1711e+10    12,724  1706326.78   {txt}Root MSE        =   {res} 1304.2
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}       B11B_{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}MIG {c |}{col 14}{res}{space 2} 49.82535{col 26}{space 2} 7.672226{col 37}{space 1}    6.49{col 46}{space 3}0.000{col 54}{space 4} 34.78663{col 67}{space 3} 64.86407
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} 1302.827{col 26}{space 2} 15.09324{col 37}{space 1}   86.32{col 46}{space 3}0.000{col 54}{space 4} 1273.242{col 67}{space 3} 1332.412
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. *regress on all variables rice, wheat, buckwheat
+. *then regress on individual variables to see if things change when produced individually
+. *do it as as Model 1, Model 2, and Model 3. 
+. *add animal production in the variable too
+. 
+{txt}end of do-file
+
+{com}. do "/var/folders/43/cyw36ncs5b9_39lxgdhxdqdm0000gn/T//SD30688.000000"
+{txt}
+{com}. **clear all
+. set more off
+{txt}
+{com}. use "/Users/sadikshyanepal/Desktop/THA/Final Paper /CMS Data- FULL Variable.dta"
+{err}no; data in memory would be lost
+{txt}{search r(4), local:r(4);}
+
+end of do-file
+
+{search r(4), local:r(4);}
+
+{com}. clear
+
+. do "/var/folders/43/cyw36ncs5b9_39lxgdhxdqdm0000gn/T//SD30688.000000"
+{txt}
+{com}. **clear all
+. set more off
+{txt}
+{com}. use "/Users/sadikshyanepal/Desktop/THA/Final Paper /CMS Data- FULL Variable.dta"
+{txt}(Chitwan Valley [Nepal] Family Study: Labour Outmigration, Agricultural Productiv)
+
+{com}. keep MIG* A1_* A2_* A2A1_* A3_* A4_* A9_* B11_* B11A_* B11B_* B11C_* B13_* B13A_* B13B_* B13C_* B17_1_* B17_1A_* B17_1B_* REM* HHID
+{txt}
+{com}. reshape long MIG A1_ A2_ A2A1_ A3_ A4_ A9_ B11_ B11A_ B11B_ B11C_ B13_ B13A_ B13B_ B13C_ B17_1_ B17_1A_ B17_1B_ REM, i(HHID) j(year)  
+{txt}(note: j = 63 64 65 66 67 68 69 70 71 72)
+B13A_65:  {res}1{txt} value would be changed; not changed
+B13A_67:  {res}2{txt} values would be changed; not changed
+B13A_69:  {res}1{txt} value would be changed; not changed
+A2A1_71:  {res}1{txt} value would be changed; not changed
+B13A_71:  {res}2{txt} values would be changed; not changed
+A2A1_72:  {res}1{txt} value would be changed; not changed
+
+Data{col 36}wide{col 43}->{col 48}long
+{hline 77}
+Number of obs.                 {res}    2255   {txt}->{res}   22550
+{txt}Number of variables            {res}     191   {txt}->{res}      21
+{txt}j variable (10 values)                    ->   {res}year
+{txt}xij variables:
+                  {res}MIG63 MIG64 ... MIG72   {txt}->   {res}MIG
+                  A1_63 A1_64 ... A1_72   {txt}->   {res}A1_
+                  A2_63 A2_64 ... A2_72   {txt}->   {res}A2_
+            A2A1_63 A2A1_64 ... A2A1_72   {txt}->   {res}A2A1_
+                  A3_63 A3_64 ... A3_72   {txt}->   {res}A3_
+                  A4_63 A4_64 ... A4_72   {txt}->   {res}A4_
+                  A9_63 A9_64 ... A9_72   {txt}->   {res}A9_
+               B11_63 B11_64 ... B11_72   {txt}->   {res}B11_
+            B11A_63 B11A_64 ... B11A_72   {txt}->   {res}B11A_
+            B11B_63 B11B_64 ... B11B_72   {txt}->   {res}B11B_
+            B11C_63 B11C_64 ... B11C_72   {txt}->   {res}B11C_
+               B13_63 B13_64 ... B13_72   {txt}->   {res}B13_
+            B13A_63 B13A_64 ... B13A_72   {txt}->   {res}B13A_
+            B13B_63 B13B_64 ... B13B_72   {txt}->   {res}B13B_
+            B13C_63 B13C_64 ... B13C_72   {txt}->   {res}B13C_
+         B17_1_63 B17_1_64 ... B17_1_72   {txt}->   {res}B17_1_
+      B17_1A_63 B17_1A_64 ... B17_1A_72   {txt}->   {res}B17_1A_
+      B17_1B_63 B17_1B_64 ... B17_1B_72   {txt}->   {res}B17_1B_
+                  REM63 REM64 ... REM72   {txt}->   {res}REM
+{txt}{hline 77}
+
+{com}. foreach x of varlist A* B* MIG REM {c -(}
+{txt}  2{com}. recode `x' (999=.) 
+{txt}  3{com}. recode `x' (998=.)
+{txt}  4{com}. {c )-}
+{txt}(A1_: 4326 changes made)
+(A1_: 6 changes made)
+(A2_: 0 changes made)
+(A2_: 0 changes made)
+(A2A1_: 0 changes made)
+(A2A1_: 0 changes made)
+(A3_: 4326 changes made)
+(A3_: 6 changes made)
+(A4_: 4326 changes made)
+(A4_: 6 changes made)
+(A9_: 4326 changes made)
+(A9_: 6 changes made)
+(B11_: 4326 changes made)
+(B11_: 6 changes made)
+(B11A_: 0 changes made)
+(B11A_: 0 changes made)
+(B11B_: 0 changes made)
+(B11B_: 0 changes made)
+(B11C_: 0 changes made)
+(B11C_: 0 changes made)
+(B13_: 4326 changes made)
+(B13_: 6 changes made)
+(B13A_: 0 changes made)
+(B13A_: 0 changes made)
+(B13B_: 0 changes made)
+(B13B_: 0 changes made)
+(B13C_: 0 changes made)
+(B13C_: 0 changes made)
+(B17_1_: 4328 changes made)
+(B17_1_: 6 changes made)
+(B17_1A_: 0 changes made)
+(B17_1A_: 0 changes made)
+(B17_1B_: 0 changes made)
+(B17_1B_: 0 changes made)
+(MIG: 0 changes made)
+(MIG: 0 changes made)
+(REM: 0 changes made)
+(REM: 0 changes made)
+
+{com}. recode B11_ (2=1)
+{txt}(B11_: 365 changes made)
+
+{com}. recode B11_ (3=1)
+{txt}(B11_: 651 changes made)
+
+{com}. replace A2_ = A2_/11.97295
+{txt}(14,639 real changes made)
+
+{com}. replace A2A1_= A2A1_/11.97295
+{txt}(330 real changes made)
+
+{com}. replace A3_ = A3_/11.97295
+{txt}(2,635 real changes made)
+
+{com}. replace A4_ = A4_/11.97295
+{txt}(5,102 real changes made)
+
+{com}. replace B11A_ = B11A_/11.97295
+{txt}(12,077 real changes made)
+
+{com}. replace B13A_= B13A_/11.97295
+{txt}(2,231 real changes made)
+
+{com}. replace B17_1A=B17_1A/11.97295
+{txt}(1,249 real changes made)
+
+{com}. regress A1_ MIG if A1_==1| A1_==0
+
+{txt}      Source {c |}       SS           df       MS      Number of obs   ={res}    17,869
+{txt}{hline 13}{c +}{hline 34}   F(1, 17867)     = {res}    11.39
+{txt}       Model {c |} {res}  1.7513256         1   1.7513256   {txt}Prob > F        ={res}    0.0007
+{txt}    Residual {c |} {res} 2746.97933    17,867  .153745974   {txt}R-squared       ={res}    0.0006
+{txt}{hline 13}{c +}{hline 34}   Adj R-squared   ={res}    0.0006
+{txt}       Total {c |} {res} 2748.73065    17,868  .153835385   {txt}Root MSE        =   {res}  .3921
+
+{txt}{hline 13}{c TT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{col 1}         A1_{col 14}{c |}      Coef.{col 26}   Std. Err.{col 38}      t{col 46}   P>|t|{col 54}     [95% Con{col 67}f. Interval]
+{hline 13}{c +}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{space 9}MIG {c |}{col 14}{res}{space 2} .0066196{col 26}{space 2} .0019613{col 37}{space 1}    3.38{col 46}{space 3}0.001{col 54}{space 4} .0027752{col 67}{space 3} .0104641
+{txt}{space 7}_cons {c |}{col 14}{res}{space 2} .8026038{col 26}{space 2} .0036825{col 37}{space 1}  217.95{col 46}{space 3}0.000{col 54}{space 4} .7953857{col 67}{space 3} .8098219
+{txt}{hline 13}{c BT}{hline 11}{hline 11}{hline 9}{hline 8}{hline 13}{hline 12}
+{res}{txt}
+{com}. generate self_cult= A2_- A3_
+{txt}(7,911 missing values generated)
+
+{com}. generate wheat_prod= B13B_/B13A_
+{txt}(20,319 missing values generated)
+
+{com}. generate rice_prod= B11B_/B11A_
+{txt}(10,473 missing values generated)
+
+{com}. generate buck_prod= B17_1B/B17_1A
+{txt}(21,301 missing values generated)
+
+{com}. collapse (sum) A2_ A2A1_ A3_ B11_ B11A_ B11B_ B11C_ B13_ B13A_ B13B_ B13C_ B17_1_ B17_1A_ B17_1B_ MIG REM, by(year)
+{txt}
+{com}. generate total_production= B11B_+ B13B_
+{txt}
+{com}. generate propotion_prod=B11B_/total_production 
+{txt}(1 missing value generated)
+
+{com}. regress wheat_prod MIG 
+{err}variable {bf}wheat_prod{sf} not found
+{txt}{search r(111), local:r(111);}
+
+end of do-file
+
+{search r(111), local:r(111);}
+
+{com}. log off
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/sadikshyanepal/Desktop/THA/THA4/Log Function for Rice Production In Chitwan Valley .smcl
+  {txt}log type:  {res}smcl
+ {txt}paused on:  {res}26 Apr 2019, 16:22:51
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}
